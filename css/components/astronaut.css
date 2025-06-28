@@ -1,0 +1,48 @@
+/* Компонент космонавта */
+.astronaut-container {
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: 2rem;
+    bottom: 2rem;
+    transform: none;
+    width: 400px;
+    height: 400px;
+    z-index: 10;
+    opacity: 0.9;
+}
+
+/* Статичный и анимированный SVG */
+.astronaut-svg-static,
+.astronaut-svg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+/* Статичный слой (нижний) */
+.astronaut-svg-static {
+    z-index: 1;
+}
+
+/* Анимированный слой (верхний) - накладывается поверх статичного */
+.astronaut-svg {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Адаптивность для космонавта */
+@media (max-width: 768px) {
+    .astronaut-container {
+        width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .astronaut-container {
+        width: 250px;
+    }
+}
