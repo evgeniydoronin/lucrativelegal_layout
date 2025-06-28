@@ -13,6 +13,7 @@
 @import url('./components/advanced-transitions.css');
 @import url('./components/story-sections.css');
 @import url('./components/enhanced-text-reveals.css');
+@import url('./components/infinite-marquee.css');
 
 /* ScrollSmoother требует эти стили */
 #smooth-wrapper {
