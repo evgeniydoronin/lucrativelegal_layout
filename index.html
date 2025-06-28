@@ -573,6 +573,80 @@
                 </div>
             </section>
 
+            <!-- 12. Interactive Mouse Effects Demo Section -->
+            <section class="section mouse-effects-demo-section">
+                <div class="section-content">
+                    <h1 class="mouse-effects-demo-title">Interactive Mouse Effects</h1>
+                    <p class="mouse-effects-demo-text">Кастомный курсор, mouse trail и magnetic эффекты для создания интерактивного пользовательского опыта</p>
+                    
+                    <!-- Magnetic Elements -->
+                    <div class="magnetic-elements-container">
+                        <a href="#" class="magnetic-element type-primary">Primary Button</a>
+                        <a href="#" class="magnetic-element type-secondary">Secondary Button</a>
+                        <a href="#" class="magnetic-element type-accent">Accent Button</a>
+                    </div>
+                    
+                    <!-- Magnetic Cards -->
+                    <div class="magnetic-cards-container">
+                        <div class="magnetic-card distortion-element">
+                            <h3>Custom Cursor</h3>
+                            <p>Кастомный курсор с анимациями hover и click состояний, адаптивными размерами и blend modes</p>
+                        </div>
+                        <div class="magnetic-card distortion-element">
+                            <h3>Mouse Trail</h3>
+                            <p>Динамический trail из частиц, реагирующий на velocity движения мыши с различными визуальными эффектами</p>
+                        </div>
+                        <div class="magnetic-card distortion-element">
+                            <h3>Magnetic Effects</h3>
+                            <p>Элементы притягиваются к курсору с elastic анимациями и 3D трансформациями</p>
+                        </div>
+                        <div class="magnetic-card distortion-element">
+                            <h3>Ripple Effects</h3>
+                            <p>Ripple эффекты при клике с настраиваемыми размерами и продолжительностью анимации</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Interactive Buttons -->
+                    <div class="interactive-buttons">
+                        <button class="interactive-btn">Hover Effect</button>
+                        <button class="interactive-btn">Click Ripple</button>
+                        <button class="interactive-btn">Magnetic Pull</button>
+                        <button class="interactive-btn">Trail Boost</button>
+                    </div>
+                    
+                    <!-- Mouse Effects Controls -->
+                    <div class="mouse-effects-controls">
+                        <h3>Mouse Effects Settings</h3>
+                        
+                        <div class="control-group">
+                            <label>Trail Length: <span id="trailLengthValue">20</span></label>
+                            <input type="range" id="trailLength" min="5" max="50" value="20">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Magnetic Strength: <span id="magneticStrengthValue">0.30</span></label>
+                            <input type="range" id="magneticStrength" min="0.1" max="1" step="0.01" value="0.3">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Ripple Size: <span id="rippleSizeValue">100px</span></label>
+                            <input type="range" id="rippleSize" min="50" max="300" value="100">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Cursor Size: <span id="cursorSizeValue">20px</span></label>
+                            <input type="range" id="cursorSize" min="10" max="50" value="20">
+                        </div>
+                        
+                        <div class="control-buttons">
+                            <button id="toggleTrail" class="control-btn">Toggle Trail</button>
+                            <button id="toggleMagnetic" class="control-btn">Toggle Magnetic</button>
+                            <button id="resetMouseEffects" class="control-btn">Reset Settings</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
 
@@ -580,6 +654,7 @@
     <script src="js/components/astronaut-svg.js"></script>
     <script src="js/components/globe-animation.js"></script>
     <script src="js/components/particle-system.js"></script>
+    <script src="js/components/mouse-effects.js"></script>
 
     <!-- GSAP модули -->
     <script src="js/gsap/horizontal-scroll.js"></script>

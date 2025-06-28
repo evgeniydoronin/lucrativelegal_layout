@@ -128,9 +128,17 @@ function initializeAll() {
         console.warn('⚠️ Класс EnhancedHorizontalScroll не найден');
     }
     
+    // Инициализируем Interactive Mouse Effects
+    if (typeof MouseEffects === 'function') {
+        window.mouseEffects = new MouseEffects();
+        console.log('✅ Interactive Mouse Effects инициализированы');
+    } else {
+        console.warn('⚠️ Класс MouseEffects не найден');
+    }
+    
     // (Удалено) Инициализация анимации видимости глобуса
     
-    console.log('🎉 LucrativeLegal инициализирован с Enhanced Scroll Animations!');
+    console.log('🎉 LucrativeLegal инициализирован с Interactive Mouse Effects!');
 }
 
 // Ждем загрузки DOM

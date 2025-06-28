@@ -9,6 +9,7 @@
 @import url('./components/globe.css');
 @import url('./components/particles.css');
 @import url('./components/scroll-animations.css');
+@import url('./components/mouse-effects.css');
 
 /* ScrollSmoother требует эти стили */
 #smooth-wrapper {
