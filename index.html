@@ -866,6 +866,94 @@
                 </div>
             </section>
 
+            <!-- 16. Story Sections Demo - YOOY Style Clip-Path Transitions -->
+            <section class="section story-sections-demo-section">
+                <!-- Story Container - Pinned -->
+                <div class="c-story" id="story-container">
+                    <!-- Background Layers -->
+                    <div class="c-story__bgs">
+                        <div class="c-story__bg c-story__bg--1"></div>
+                        <div class="c-story__bg c-story__bg--2"></div>
+                        <div class="c-story__bg c-story__bg--3"></div>
+                    </div>
+                    
+                    <!-- Story Scene 1 -->
+                    <div class="c-story__scene c-story__scene--1">
+                        <div class="c-story__content">
+                            <h1 class="c-story__title">Story Section 1</h1>
+                            <h2 class="c-story__subtitle">Hero Demo</h2>
+                            <p class="c-story__text">Первая секция с синим градиентным фоном. Демонстрирует начальное состояние story sections с базовыми анимациями появления контента.</p>
+                            <button class="c-story__button">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Story Scene 2 -->
+                    <div class="c-story__scene c-story__scene--2">
+                        <div class="c-story__content">
+                            <h1 class="c-story__title">Story Section 2</h1>
+                            <h2 class="c-story__subtitle">Services Demo</h2>
+                            <p class="c-story__text">Вторая секция с зеленым градиентом. Появляется через circle reveal переход с clip-path анимацией от центра экрана.</p>
+                            <button class="c-story__button">Explore Services</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Story Scene 3 -->
+                    <div class="c-story__scene c-story__scene--3">
+                        <div class="c-story__content">
+                            <h1 class="c-story__title">Story Section 3</h1>
+                            <h2 class="c-story__subtitle">Final Demo</h2>
+                            <p class="c-story__text">Финальная секция с фиолетовым градиентом. Демонстрирует завершающий circle reveal переход с позицией 25% 50% как у YOOY.</p>
+                            <button class="c-story__button">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story Progress Indicator -->
+                <div class="story-progress">
+                    <div class="story-progress__bar">
+                        <div class="story-progress__fill"></div>
+                    </div>
+                    <div class="story-progress__text">
+                        <span class="story-progress__current">1</span> / <span class="story-progress__total">3</span>
+                    </div>
+                </div>
+                
+                <!-- Story Controls -->
+                <div class="story-controls">
+                    <h3>Story Sections Settings</h3>
+                    
+                    <div class="story-control-row">
+                        <label>Transition Duration:</label>
+                        <span id="storyDurationValue">1.5s</span>
+                        <input type="range" id="storyDuration" min="0.5" max="3" step="0.1" value="1.5">
+                    </div>
+                    
+                    <div class="story-control-row">
+                        <label>Circle Size:</label>
+                        <span id="circleSizeValue">150%</span>
+                        <input type="range" id="circleSize" min="100" max="200" step="5" value="150">
+                    </div>
+                    
+                    <div class="story-control-row">
+                        <label>Circle Position X:</label>
+                        <span id="circleXValue">50%</span>
+                        <input type="range" id="circleX" min="0" max="100" step="5" value="50">
+                    </div>
+                    
+                    <div class="story-control-row">
+                        <label>Circle Position Y:</label>
+                        <span id="circleYValue">50%</span>
+                        <input type="range" id="circleY" min="0" max="100" step="5" value="50">
+                    </div>
+                    
+                    <div class="story-control-buttons">
+                        <button id="storyPrev" class="story-control-btn">Previous</button>
+                        <button id="storyNext" class="story-control-btn">Next</button>
+                        <button id="storyReset" class="story-control-btn">Reset</button>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
 
@@ -875,6 +963,7 @@
     <script src="js/components/particle-system.js"></script>
     <script src="js/components/mouse-effects.js"></script>
     <script src="js/components/advanced-transitions.js"></script>
+    <script src="js/components/story-sections.js"></script>
 
     <!-- GSAP модули -->
     <script src="js/gsap/horizontal-scroll.js"></script>
