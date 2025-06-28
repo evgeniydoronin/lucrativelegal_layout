@@ -24,7 +24,7 @@
 - **Анимации**: Flip transitions, magnetic hover effects
 - **Особенности**: Каждая карточка с иконкой и кратким описанием
 
-### 4. 💬 Client Reviews
+### 4. � Client Reviews
 - **Стиль**: SplitText showcase с типографическими эффектами
 - **Контент**: 5-звездочные отзывы клиентов, цитаты от D. Rubin, J. Nisivaco, S. Whitworth
 - **Анимации**: Text reveals, character-by-character появление
@@ -86,7 +86,7 @@
 - Physics2DPlugin - физические эффекты
 - Draggable - перетаскивание элементов
 
-## 🎨 Дизайн
+## � Дизайн
 
 ### Цветовая палитра
 - **Основной градиент**: `linear-gradient(135deg, #667eea 0%, #764ba2 100%)`
@@ -159,6 +159,9 @@ lucrativelegal/
 - ✅ Magnetic эффекты
 - ✅ Infinite scroll
 - ✅ SVG анимации
+- ✅ **DrawSVG сегментированное рисование космонавта**
+- ✅ **Three.js интерактивный 3D глобус**
+- ✅ **Горизонтальный скролл секции услуг**
 
 ### Планируемые функции
 - 🔄 Интеграция с CMS

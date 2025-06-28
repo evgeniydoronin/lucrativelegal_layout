@@ -84,6 +84,26 @@ function initializeAll() {
         console.warn('⚠️ Класс GlobeAnimation не найден');
     }
     
+    // Инициализируем Particle System для экспериментальной секции
+    if (typeof ParticleSystem === 'function') {
+        const particleCanvas = document.getElementById('particleCanvas');
+        if (particleCanvas) {
+            window.particleSystem = new ParticleSystem('particleCanvas', {
+                count: 100,
+                connectionDistance: 150,
+                mouseRadius: 200,
+                colors: ['#667eea', '#764ba2', '#f093fb'],
+                speed: 0.5
+            });
+            
+            // Настраиваем интерактивные контролы
+            setupParticleControls();
+            console.log('✅ Particle System инициализирован');
+        }
+    } else {
+        console.warn('⚠️ Класс ParticleSystem не найден');
+    }
+    
     // (Удалено) Инициализация анимации видимости глобуса
     
     console.log('🎉 LucrativeLegal инициализирован (без анимаций)!');
@@ -101,6 +121,92 @@ window.addEventListener('resize', () => {
     console.log('📐 Обновление ScrollTrigger при изменении размера окна...');
     ScrollTrigger.refresh();
 });
+
+// Настройка интерактивных контролов для Particle System
+function setupParticleControls() {
+    const particleSlider = document.getElementById('particleSlider');
+    const radiusSlider = document.getElementById('radiusSlider');
+    const toggleButton = document.getElementById('toggleParticles');
+    const particleCountSpan = document.getElementById('particleCount');
+    const mouseRadiusSpan = document.getElementById('mouseRadius');
+
+    // Контроль количества частиц
+    if (particleSlider && particleCountSpan) {
+        particleSlider.addEventListener('input', (e) => {
+            const count = parseInt(e.target.value);
+            particleCountSpan.textContent = count;
+            
+            if (window.particleSystem) {
+                window.particleSystem.updateConfig({ particleCount: count });
+            }
+        });
+    }
+
+    // Контроль радиуса взаимодействия
+    if (radiusSlider && mouseRadiusSpan) {
+        radiusSlider.addEventListener('input', (e) => {
+            const radius = parseInt(e.target.value);
+            mouseRadiusSpan.textContent = radius;
+            
+            if (window.particleSystem) {
+                window.particleSystem.updateConfig({ mouseRadius: radius });
+            }
+        });
+    }
+
+    // Кнопка паузы/возобновления
+    if (toggleButton) {
+        toggleButton.addEventListener('click', () => {
+            if (window.particleSystem) {
+                window.particleSystem.toggle();
+                toggleButton.textContent = window.particleSystem.isRunning ? 'Pause' : 'Resume';
+            }
+        });
+    }
+
+    // Magnetic эффект для кнопок
+    if (typeof gsap !== 'undefined') {
+        const magneticButtons = document.querySelectorAll('.magnetic');
+        magneticButtons.forEach(button => {
+            button.addEventListener('mouseenter', (e) => {
+                gsap.to(e.target, {
+                    scale: 1.1,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            button.addEventListener('mousemove', (e) => {
+                const rect = e.target.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                gsap.to(e.target, {
+                    x: x * 0.1,
+                    y: y * 0.1,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            button.addEventListener('mouseleave', (e) => {
+                gsap.to(e.target, {
+                    scale: 1,
+                    x: 0,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
+        
+        console.log('✅ Magnetic эффекты настроены');
+    } else {
+        console.warn('⚠️ GSAP не загружен - magnetic эффекты отключены');
+    }
+
+    console.log('✅ Particle Controls настроены');
+}
 
 // Дебаг информация
 console.log('📊 LucrativeLegal Debug Info:', {

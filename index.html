@@ -393,12 +393,43 @@
                 </div>
             </section>
 
+            <!-- 8. Experimental Particle System Section -->
+            <section class="section particle-experiment-section">
+                <!-- Particle Canvas Container -->
+                <div class="particle-canvas-container">
+                    <canvas id="particleCanvas"></canvas>
+                </div>
+                
+                <div class="section-content">
+                    <h2 class="section-title particle-demo-title">Particle System Demo</h2>
+                    <p class="particle-demo-text">Наведите мышь для интерактивности</p>
+                    
+                    <!-- Demo buttons для тестирования hover эффектов -->
+                    <div class="particle-demo-buttons">
+                        <button class="demo-btn magnetic" data-text="Hover Me">Magnetic Button</button>
+                        <button class="demo-btn magnetic" data-text="Click Me">Interactive Button</button>
+                    </div>
+                    
+                    <!-- Particle Controls -->
+                    <div class="particle-controls">
+                        <label>Количество частиц: <span id="particleCount">100</span></label>
+                        <input type="range" id="particleSlider" min="50" max="200" value="100">
+                        
+                        <label>Радиус взаимодействия: <span id="mouseRadius">200</span>px</label>
+                        <input type="range" id="radiusSlider" min="100" max="300" value="200">
+                        
+                        <button id="toggleParticles" class="demo-btn">Pause/Resume</button>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
 
     <!-- Компоненты -->
     <script src="js/components/astronaut-svg.js"></script>
     <script src="js/components/globe-animation.js"></script>
+    <script src="js/components/particle-system.js"></script>
 
     <!-- GSAP модули -->
     <script src="js/gsap/horizontal-scroll.js"></script>

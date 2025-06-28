@@ -1,0 +1,243 @@
+/* Particle System - Экспериментальная секция */
+
+/* 8. Particle Experiment Section */
+.particle-experiment-section {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Particle Canvas Container */
+.particle-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+#particleCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: auto;
+    cursor: crosshair;
+}
+
+/* Контент поверх частиц */
+.particle-experiment-section .section-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+}
+
+.particle-demo-title {
+    color: #ffffff;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.particle-demo-text {
+    color: #cccccc;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+/* Demo Buttons */
+.particle-demo-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.demo-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 150px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.demo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.demo-btn:active {
+    transform: translateY(0);
+}
+
+/* Magnetic effect для кнопок */
+.demo-btn.magnetic {
+    transition: transform 0.2s ease;
+}
+
+/* Particle Controls */
+.particle-controls {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.particle-controls label {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.particle-controls span {
+    color: #667eea;
+    font-weight: bold;
+}
+
+.particle-controls input[type="range"] {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
+}
+
+.particle-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+}
+
+.particle-controls input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+}
+
+#toggleParticles {
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    margin-top: 1rem;
+}
+
+#toggleParticles:hover {
+    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.5);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .particle-demo-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .demo-btn {
+        min-width: 200px;
+    }
+    
+    .particle-controls {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .particle-demo-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .particle-experiment-section .section-content {
+        padding: 1rem;
+    }
+    
+    .particle-controls {
+        padding: 1rem;
+    }
+    
+    .demo-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Анимации для появления элементов */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.particle-demo-title {
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.particle-demo-text {
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.particle-demo-buttons {
+    animation: fadeInUp 1s ease 0.6s both;
+}
+
+.particle-controls {
+    animation: fadeInUp 1s ease 0.8s both;
+}
+
+/* Эффект свечения для активных элементов */
+.demo-btn:focus,
+.particle-controls input[type="range"]:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Дополнительные эффекты */
+.particle-experiment-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
