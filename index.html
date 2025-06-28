@@ -423,6 +423,156 @@
                 </div>
             </section>
 
+            <!-- 9. Parallax Demo Section -->
+            <section class="section parallax-demo-section">
+                <!-- Parallax Layers -->
+                <div class="parallax-layer parallax-layer-1"></div>
+                <div class="parallax-layer parallax-layer-2"></div>
+                <div class="parallax-layer parallax-layer-3"></div>
+                
+                <!-- Floating Elements -->
+                <div class="parallax-floating-element"></div>
+                <div class="parallax-floating-element"></div>
+                <div class="parallax-floating-element"></div>
+                <div class="parallax-floating-element"></div>
+                <div class="parallax-floating-element"></div>
+                
+                <div class="section-content">
+                    <h2 class="section-title parallax-demo-title">Enhanced Parallax Demo</h2>
+                    <p class="parallax-demo-text">Многослойный параллакс с velocity-based эффектами</p>
+                    
+                    <!-- Parallax Controls -->
+                    <div class="parallax-controls">
+                        <label>Layer 1 Speed: <span id="layer1Value">0.2</span></label>
+                        <input type="range" id="layer1Speed" min="0" max="1" step="0.1" value="0.2">
+                        
+                        <label>Layer 2 Speed: <span id="layer2Value">0.5</span></label>
+                        <input type="range" id="layer2Speed" min="0" max="1" step="0.1" value="0.5">
+                        
+                        <label>Layer 3 Speed: <span id="layer3Value">0.8</span></label>
+                        <input type="range" id="layer3Speed" min="0" max="1" step="0.1" value="0.8">
+                        
+                        <label>Velocity Multiplier: <span id="velocityValue">0.10</span></label>
+                        <input type="range" id="velocityMultiplier" min="0" max="0.5" step="0.01" value="0.1">
+                        
+                        <button id="resetParallax" class="demo-btn">Reset Settings</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. Text Reveal Demo Section -->
+            <section class="section text-reveal-demo-section">
+                <!-- Morphing Shapes -->
+                <div class="morphing-shape morphing-shape-1"></div>
+                <div class="morphing-shape morphing-shape-2"></div>
+                <div class="morphing-shape morphing-shape-3"></div>
+                
+                <div class="section-content">
+                    <h1 class="reveal-title">Advanced Text Reveal Animations</h1>
+                    <h2 class="reveal-subtitle">SplitText анимации с morphing эффектами</h2>
+                    <p class="reveal-paragraph">Этот раздел демонстрирует продвинутые анимации текста с использованием GSAP SplitText. Каждый символ, слово и строка анимируются индивидуально для создания впечатляющих reveal эффектов.</p>
+                    
+                    <!-- Stagger Animation Elements -->
+                    <div class="stagger-container">
+                        <div class="stagger-item">
+                            <h3>Character Reveal</h3>
+                            <p>Анимация появления символ за символом с elastic эффектами</p>
+                        </div>
+                        <div class="stagger-item">
+                            <h3>Word Animation</h3>
+                            <p>Плавное появление слов с задержкой и 3D трансформациями</p>
+                        </div>
+                        <div class="stagger-item">
+                            <h3>Line Effects</h3>
+                            <p>Анимация строк с различными easing функциями</p>
+                        </div>
+                        <div class="stagger-item">
+                            <h3>Morphing Shapes</h3>
+                            <p>SVG формы, которые плавно трансформируются в фоне</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Text Reveal Controls -->
+                    <div class="text-reveal-controls">
+                        <label>Reveal Duration: <span id="durationValue">1.0s</span></label>
+                        <input type="range" id="revealDuration" min="0.5" max="3" step="0.1" value="1.0">
+                        
+                        <label>Stagger Delay: <span id="staggerValue">0.10s</span></label>
+                        <input type="range" id="staggerDelay" min="0.05" max="0.5" step="0.01" value="0.1">
+                        
+                        <label>Elastic Strength: <span id="elasticValue">1.5</span></label>
+                        <input type="range" id="elasticStrength" min="1" max="3" step="0.1" value="1.5">
+                        
+                        <label>Morphing Duration: <span id="morphingValue">3.0s</span></label>
+                        <input type="range" id="morphingDuration" min="1" max="8" step="0.5" value="3.0">
+                        
+                        <button id="replayReveal" class="demo-btn">Replay Animations</button>
+                        <button id="resetReveal" class="demo-btn">Reset Settings</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 11. Enhanced Horizontal Scroll Demo Section -->
+            <section class="section enhanced-horizontal-demo-section">
+                <!-- Momentum Indicator -->
+                <div class="momentum-indicator">
+                    <div class="momentum-bar">
+                        <div class="momentum-fill"></div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Horizontal Container -->
+                <div class="enhanced-horizontal-container">
+                    <div class="enhanced-horizontal-panel">
+                        <div class="enhanced-panel-content">
+                            <h2 class="enhanced-panel-title">Momentum Scrolling</h2>
+                            <p class="enhanced-panel-text">Плавный горизонтальный скролл с momentum эффектами и velocity-based анимациями</p>
+                        </div>
+                    </div>
+                    <div class="enhanced-horizontal-panel">
+                        <div class="enhanced-panel-content">
+                            <h2 class="enhanced-panel-title">Velocity Particles</h2>
+                            <p class="enhanced-panel-text">Частицы реагируют на скорость скролла, создавая динамичные визуальные эффекты</p>
+                        </div>
+                    </div>
+                    <div class="enhanced-horizontal-panel">
+                        <div class="enhanced-panel-content">
+                            <h2 class="enhanced-panel-title">Smart Snapping</h2>
+                            <p class="enhanced-panel-text">Интеллектуальное прилипание к панелям с адаптивной продолжительностью</p>
+                        </div>
+                    </div>
+                    <div class="enhanced-horizontal-panel">
+                        <div class="enhanced-panel-content">
+                            <h2 class="enhanced-panel-title">Panel Transitions</h2>
+                            <p class="enhanced-panel-text">Плавные переходы между панелями с blur и scale эффектами</p>
+                        </div>
+                    </div>
+                    <div class="enhanced-horizontal-panel">
+                        <div class="enhanced-panel-content">
+                            <h2 class="enhanced-panel-title">Integration Ready</h2>
+                            <p class="enhanced-panel-text">Готовая интеграция с particle system и другими компонентами</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Horizontal Controls -->
+                <div class="enhanced-horizontal-controls">
+                    <label>Momentum: <span id="momentumDisplay">0.8</span></label>
+                    <input type="range" id="momentumValue" min="0.1" max="2" step="0.1" value="0.8">
+                    
+                    <label>Smoothness: <span id="smoothnessDisplay">1.2</span></label>
+                    <input type="range" id="smoothnessValue" min="0.5" max="3" step="0.1" value="1.2">
+                    
+                    <label>Velocity: <span id="velocityDisplay">0.050</span></label>
+                    <input type="range" id="velocityMultiplier" min="0.01" max="0.2" step="0.001" value="0.05">
+                    
+                    <label>Particles: <span id="particleDisplay">20</span></label>
+                    <input type="range" id="particleCount" min="5" max="50" step="1" value="20">
+                    
+                    <button id="resetHorizontal" class="demo-btn">Reset Settings</button>
+                </div>
+            </section>
+
         </div>
     </div>
 
@@ -434,6 +584,9 @@
     <!-- GSAP модули -->
     <script src="js/gsap/horizontal-scroll.js"></script>
     <script src="js/gsap/astronaut-drawing.js"></script>
+    <script src="js/gsap/enhanced-parallax.js"></script>
+    <script src="js/gsap/reveal-animations.js"></script>
+    <script src="js/gsap/enhanced-horizontal-scroll.js"></script>
 
     <!-- Главный файл инициализации -->
     <script src="js/main.js"></script>

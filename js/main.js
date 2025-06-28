@@ -104,9 +104,33 @@ function initializeAll() {
         console.warn('⚠️ Класс ParticleSystem не найден');
     }
     
+    // Инициализируем Enhanced Parallax
+    if (typeof EnhancedParallax === 'function') {
+        window.enhancedParallax = new EnhancedParallax();
+        console.log('✅ Enhanced Parallax инициализирован');
+    } else {
+        console.warn('⚠️ Класс EnhancedParallax не найден');
+    }
+    
+    // Инициализируем Reveal Animations
+    if (typeof RevealAnimations === 'function') {
+        window.revealAnimations = new RevealAnimations();
+        console.log('✅ Reveal Animations инициализированы');
+    } else {
+        console.warn('⚠️ Класс RevealAnimations не найден');
+    }
+    
+    // Инициализируем Enhanced Horizontal Scroll
+    if (typeof EnhancedHorizontalScroll === 'function') {
+        window.enhancedHorizontalScroll = new EnhancedHorizontalScroll();
+        console.log('✅ Enhanced Horizontal Scroll инициализирован');
+    } else {
+        console.warn('⚠️ Класс EnhancedHorizontalScroll не найден');
+    }
+    
     // (Удалено) Инициализация анимации видимости глобуса
     
-    console.log('🎉 LucrativeLegal инициализирован (без анимаций)!');
+    console.log('🎉 LucrativeLegal инициализирован с Enhanced Scroll Animations!');
 }
 
 // Ждем загрузки DOM
