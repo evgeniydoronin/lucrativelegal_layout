@@ -12,6 +12,7 @@
 @import url('./components/mouse-effects.css');
 @import url('./components/advanced-transitions.css');
 @import url('./components/story-sections.css');
+@import url('./components/enhanced-text-reveals.css');
 
 /* ScrollSmoother требует эти стили */
 #smooth-wrapper {
