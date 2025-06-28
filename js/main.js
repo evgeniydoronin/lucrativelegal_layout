@@ -136,9 +136,17 @@ function initializeAll() {
         console.warn('⚠️ Класс MouseEffects не найден');
     }
     
+    // Инициализируем Advanced Transitions
+    if (typeof AdvancedTransitions === 'function') {
+        window.advancedTransitions = new AdvancedTransitions();
+        console.log('✅ Advanced Transitions инициализированы');
+    } else {
+        console.warn('⚠️ Класс AdvancedTransitions не найден');
+    }
+    
     // (Удалено) Инициализация анимации видимости глобуса
     
-    console.log('🎉 LucrativeLegal инициализирован с Interactive Mouse Effects!');
+    console.log('🎉 LucrativeLegal инициализирован с Advanced Transitions!');
 }
 
 // Ждем загрузки DOM

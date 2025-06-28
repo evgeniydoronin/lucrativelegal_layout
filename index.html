@@ -647,6 +647,225 @@
                 </div>
             </section>
 
+            <!-- 13. Page Transitions Demo Section -->
+            <section class="section page-transitions-demo-section">
+                <div class="page-container">
+                    <!-- Virtual Page 1 -->
+                    <div class="virtual-page virtual-page-1 active">
+                        <div class="page-content">
+                            <h1 class="page-title">Slide Transitions</h1>
+                            <p class="page-description">Плавные переходы между страницами с различными направлениями и эффектами</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Virtual Page 2 -->
+                    <div class="virtual-page virtual-page-2">
+                        <div class="page-content">
+                            <h1 class="page-title">Fade Transitions</h1>
+                            <p class="page-description">Элегантные fade эффекты с масштабированием и плавными переходами opacity</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Virtual Page 3 -->
+                    <div class="virtual-page virtual-page-3">
+                        <div class="page-content">
+                            <h1 class="page-title">Morph Transitions</h1>
+                            <p class="page-description">Динамичные морфинг переходы с вращением и elastic эффектами</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Virtual Page 4 -->
+                    <div class="virtual-page virtual-page-4">
+                        <div class="page-content">
+                            <h1 class="page-title">Liquid Transitions</h1>
+                            <p class="page-description">Жидкие переходы с использованием clip-path для создания органичных эффектов</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Page Navigation -->
+                <div class="page-navigation">
+                    <button class="page-nav-btn">Page 1</button>
+                    <button class="page-nav-btn">Page 2</button>
+                    <button class="page-nav-btn">Page 3</button>
+                    <button class="page-nav-btn">Page 4</button>
+                </div>
+                
+                <!-- Transition Controls -->
+                <div class="transition-controls">
+                    <h3>Transition Type</h3>
+                    <div class="transition-type-selector">
+                        <button class="transition-type-btn">Slide</button>
+                        <button class="transition-type-btn">Fade</button>
+                        <button class="transition-type-btn">Morph</button>
+                        <button class="transition-type-btn">Liquid</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 14. Element Transitions Demo Section -->
+            <section class="section element-transitions-demo-section">
+                <div class="section-content">
+                    <h1 class="element-transitions-demo-title">Element Transitions</h1>
+                    <p class="element-transitions-demo-text">Flip анимации, morphing элементы и state changes с GSAP Flip плагином</p>
+                    
+                    <!-- Flip Animation Container -->
+                    <div class="flip-container">
+                        <div class="flip-item">
+                            <h3>Flip Card 1</h3>
+                            <p>Кликните для переворота с elastic анимацией</p>
+                        </div>
+                        <div class="flip-item">
+                            <h3>Flip Card 2</h3>
+                            <p>3D трансформации с плавными переходами</p>
+                        </div>
+                        <div class="flip-item">
+                            <h3>Flip Card 3</h3>
+                            <p>Интерактивные элементы с hover эффектами</p>
+                        </div>
+                        <div class="flip-item">
+                            <h3>Flip Card 4</h3>
+                            <p>Настраиваемые параметры анимации</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Morphing Elements -->
+                    <div class="morphing-elements">
+                        <div class="morph-shape"></div>
+                        <div class="morph-shape"></div>
+                        <div class="morph-shape"></div>
+                        <div class="morph-shape"></div>
+                    </div>
+                    
+                    <!-- State Change Elements -->
+                    <div class="state-elements">
+                        <div class="state-card">
+                            <div class="state-card-content">
+                                <h3>Expandable Card</h3>
+                                <p>Click to expand</p>
+                            </div>
+                        </div>
+                        <div class="state-card">
+                            <div class="state-card-content">
+                                <h3>Dynamic Resize</h3>
+                                <p>Smooth transitions</p>
+                            </div>
+                        </div>
+                        <div class="state-card">
+                            <div class="state-card-content">
+                                <h3>State Changes</h3>
+                                <p>Interactive elements</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Element Transition Controls -->
+                    <div class="element-transition-controls">
+                        <h3>Element Animation Settings</h3>
+                        
+                        <div class="control-row">
+                            <label>Duration:</label>
+                            <span id="elementDurationValue">0.8s</span>
+                            <input type="range" id="elementDuration" min="0.3" max="2" step="0.1" value="0.8">
+                        </div>
+                        
+                        <div class="control-row">
+                            <label>Stagger:</label>
+                            <span id="elementStaggerValue">0.10s</span>
+                            <input type="range" id="elementStagger" min="0.05" max="0.5" step="0.01" value="0.1">
+                        </div>
+                        
+                        <div class="control-row">
+                            <label>Elastic:</label>
+                            <span id="elementElasticValue">1.5</span>
+                            <input type="range" id="elementElastic" min="1" max="3" step="0.1" value="1.5">
+                        </div>
+                        
+                        <div class="element-control-buttons">
+                            <button id="flipAll" class="element-control-btn">Flip All</button>
+                            <button id="morphAll" class="element-control-btn">Morph All</button>
+                            <button id="resetElements" class="element-control-btn">Reset All</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 15. Advanced Scroll Transitions Section -->
+            <section class="section advanced-scroll-transitions-section">
+                <div class="timeline-container">
+                    <h1 class="timeline-title">Advanced Scroll Transitions</h1>
+                    <p class="timeline-description">Timeline анимации, scroll-triggered эффекты и sequence анимации</p>
+                    
+                    <!-- Timeline Line -->
+                    <div class="timeline-line"></div>
+                    <div class="timeline-progress"></div>
+                    
+                    <!-- Timeline Items -->
+                    <div class="timeline-items">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>ScrollTrigger Integration</h3>
+                                <p>Мощная интеграция с GSAP ScrollTrigger для создания scroll-based анимаций с точным контролем триггеров</p>
+                                <div class="timeline-date">Step 1</div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>Timeline Animations</h3>
+                                <p>Сложные timeline анимации с последовательными эффектами и синхронизированными переходами</p>
+                                <div class="timeline-date">Step 2</div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>Sequence Effects</h3>
+                                <p>Последовательные анимации элементов с настраиваемыми задержками и stagger эффектами</p>
+                                <div class="timeline-date">Step 3</div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>Progress Tracking</h3>
+                                <p>Визуальное отслеживание прогресса скролла с динамическими индикаторами и progress bars</p>
+                                <div class="timeline-date">Step 4</div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>Interactive Elements</h3>
+                                <p>Интерактивные элементы, реагирующие на scroll с возможностью навигации и управления</p>
+                                <div class="timeline-date">Step 5</div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scroll Sequence -->
+                <div class="scroll-sequence">
+                    <div class="sequence-element">1</div>
+                    <div class="sequence-element">2</div>
+                    <div class="sequence-element">3</div>
+                    <div class="sequence-element">4</div>
+                    <div class="sequence-element">5</div>
+                </div>
+                
+                <!-- Advanced Scroll Controls -->
+                <div class="advanced-scroll-controls">
+                    <button class="scroll-control-btn">Smooth Scroll</button>
+                    <button class="scroll-control-btn">Reset Timeline</button>
+                    <button class="scroll-control-btn">Auto Scroll</button>
+                </div>
+            </section>
+
         </div>
     </div>
 
@@ -655,6 +874,7 @@
     <script src="js/components/globe-animation.js"></script>
     <script src="js/components/particle-system.js"></script>
     <script src="js/components/mouse-effects.js"></script>
+    <script src="js/components/advanced-transitions.js"></script>
 
     <!-- GSAP модули -->
     <script src="js/gsap/horizontal-scroll.js"></script>

@@ -1,0 +1,882 @@
+/* Advanced Transitions - Page transitions, element morphing и scroll-based анимации */
+
+/* 13. Page Transitions Demo Section */
+.page-transitions-demo-section {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Page Container */
+.page-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Virtual Pages */
+.virtual-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: none;
+}
+
+.virtual-page.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.virtual-page-1 {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.virtual-page-2 {
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+}
+
+.virtual-page-3 {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+.virtual-page-4 {
+    background: linear-gradient(45deg, #43e97b, #38f9d7);
+}
+
+.page-content {
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+.page-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.page-description {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Page Navigation */
+.page-navigation {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.page-nav-btn {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.page-nav-btn.active {
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Transition Controls */
+.transition-controls {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 100;
+}
+
+.transition-controls h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.transition-type-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.transition-type-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.transition-type-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.transition-type-btn.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 14. Element Transitions Demo Section */
+.element-transitions-demo-section {
+    background: linear-gradient(135deg, #2d1b69 0%, #11998e 50%, #38ef7d 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.element-transitions-demo-section .section-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.element-transitions-demo-title {
+    color: #ffffff;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #ffffff, #a8edea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.element-transitions-demo-text {
+    color: #cccccc;
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Flip Animation Container */
+.flip-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flip-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.flip-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.flip-item:hover::before {
+    opacity: 1;
+}
+
+.flip-item h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.flip-item p {
+    color: #cccccc;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.flip-item.flipped {
+    background: rgba(168, 237, 234, 0.2);
+    border-color: rgba(168, 237, 234, 0.5);
+    transform: rotateY(180deg);
+}
+
+/* Morphing Elements */
+.morphing-elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.morph-shape {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+.morph-shape::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.morph-shape:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.morph-shape.circle {
+    border-radius: 50%;
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+}
+
+.morph-shape.triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+.morph-shape.star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background: linear-gradient(45deg, #43e97b, #38f9d7);
+}
+
+/* State Change Elements */
+.state-elements {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.state-card {
+    width: 250px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.state-card-content {
+    text-align: center;
+    color: white;
+    transition: all 0.4s ease;
+}
+
+.state-card.expanded {
+    width: 350px;
+    height: 200px;
+    background: rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.6);
+}
+
+.state-card.expanded .state-card-content {
+    transform: scale(1.2);
+}
+
+/* Element Transition Controls */
+.element-transition-controls {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 3rem auto 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.element-transition-controls h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.control-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.control-row label {
+    color: #ffffff;
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.control-row span {
+    color: #a8edea;
+    font-weight: bold;
+    min-width: 60px;
+}
+
+.control-row input[type="range"] {
+    flex: 1;
+    min-width: 150px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
+}
+
+.control-row input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #a8edea, #fed6e3);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(168, 237, 234, 0.5);
+}
+
+.control-row input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #a8edea, #fed6e3);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 10px rgba(168, 237, 234, 0.5);
+}
+
+.element-control-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.element-control-btn {
+    padding: 0.8rem 1.5rem;
+    background: rgba(168, 237, 234, 0.2);
+    border: 1px solid rgba(168, 237, 234, 0.5);
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.element-control-btn:hover {
+    background: rgba(168, 237, 234, 0.4);
+    border-color: rgba(168, 237, 234, 0.8);
+    box-shadow: 0 4px 15px rgba(168, 237, 234, 0.3);
+}
+
+/* 15. Advanced Scroll Transitions Section */
+.advanced-scroll-transitions-section {
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 200vh; /* Увеличенная высота для демонстрации scroll эффектов */
+}
+
+/* Timeline Container */
+.timeline-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.timeline-title {
+    color: #ffffff;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.timeline-description {
+    color: #cccccc;
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+    opacity: 0.9;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Timeline Line */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(102, 126, 234, 0.3) 0%, 
+        rgba(118, 75, 162, 0.5) 50%, 
+        rgba(240, 147, 251, 0.3) 100%);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-progress {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 0%;
+    background: linear-gradient(to bottom, #667eea, #764ba2, #f093fb);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    transition: height 0.1s ease;
+}
+
+/* Timeline Items */
+.timeline-items {
+    position: relative;
+    z-index: 10;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    right: -25px;
+    left: auto;
+    border-left: 15px solid rgba(255, 255, 255, 0.1);
+    border-right: none;
+}
+
+.timeline-content {
+    width: 45%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-50%);
+}
+
+.timeline-content h3 {
+    color: #667eea;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.timeline-content p {
+    color: #cccccc;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-date {
+    color: #f093fb;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Timeline Dots */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #667eea, #f093fb);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid #0c0c0c;
+    z-index: 20;
+    opacity: 0;
+    scale: 0;
+}
+
+.timeline-dot.active {
+    opacity: 1;
+    scale: 1;
+    transition: all 0.5s ease;
+}
+
+/* Scroll Sequence Elements */
+.scroll-sequence {
+    position: fixed;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.sequence-element {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    opacity: 0.3;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.sequence-element.active {
+    opacity: 1;
+    transform: scale(1);
+    background: rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.6);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Advanced Scroll Controls */
+.advanced-scroll-controls {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 100;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.scroll-control-btn {
+    padding: 0.8rem 1.5rem;
+    background: rgba(102, 126, 234, 0.2);
+    border: 1px solid rgba(102, 126, 234, 0.5);
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scroll-control-btn:hover {
+    background: rgba(102, 126, 234, 0.4);
+    border-color: rgba(102, 126, 234, 0.8);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.scroll-control-btn.active {
+    background: rgba(102, 126, 234, 0.5);
+    border-color: rgba(102, 126, 234, 1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .transition-controls {
+        position: static;
+        margin: 2rem auto;
+        max-width: 300px;
+    }
+    
+    .page-navigation {
+        bottom: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .page-nav-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .flip-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .morphing-elements {
+        gap: 2rem;
+    }
+    
+    .morph-shape {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .state-elements {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .timeline-content {
+        width: 90%;
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+    
+    .timeline-content::before {
+        display: none;
+    }
+    
+    .timeline-line {
+        left: 20px;
+    }
+    
+    .timeline-progress {
+        left: 20px;
+    }
+    
+    .timeline-dot {
+        left: 20px;
+    }
+    
+    .scroll-sequence {
+        right: 2%;
+        gap: 0.5rem;
+    }
+    
+    .sequence-element {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    
+    .advanced-scroll-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .element-transitions-demo-title,
+    .timeline-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    
+    .element-transition-controls,
+    .transition-controls {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+    
+    .control-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .control-row label {
+        min-width: auto;
+    }
+    
+    .control-row input[type="range"] {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .timeline-content {
+        padding: 2rem;
+    }
+}
+
+/* Анимации появления */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes morphBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Применение анимаций */
+.element-transitions-demo-title {
+    animation: fadeInScale 1s ease 0.2s both;
+}
+
+.element-transitions-demo-text {
+    animation: fadeInScale 1s ease 0.4s both;
+}
+
+.flip-container {
+    animation: slideInFromLeft 1s ease 0.6s both;
+}
+
+.morphing-elements {
+    animation: fadeInScale 1s ease 0.8s both;
+}
+
+.state-elements {
+    animation: slideInFromRight 1s ease 1s both;
+}
+
+.timeline-title {
+    animation: fadeInScale 1s ease 0.2s both;
+}
+
+.timeline-description {
+    animation: fadeInScale 1s ease 0.4s both;
+}
+
+/* Hover эффекты */
+.flip-item:hover,
+.state-card:hover,
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.morph-shape:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.morph-shape:active {
+    animation: morphBounce 0.6s ease;
+}
